@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Switcher from "./Switcher";
+import Button from "./Button";
+import Header from "./Header";
+import Card from "./Cards";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/results">
+          <div className="fill-viewport bg-gray-50">
+            <Card></Card>
+            <div className="btn-container container mx-auto px-10">
+              <Link to="/">
+                <Button text="Search Again" className="mb-20"></Button>
+              </Link>
+            </div>
+          </div>
+        </Route>
+        <Route path="/">
+          <div className="fill-viewport bg-gray-50">
+            <Header userCity="Munich" userCountry="Germany"></Header>
+            <div className="form-control container mx-auto px-10">
+              <Switcher label="Less expensive" isEnabled={true}></Switcher>
+              <Switcher label="Warmer in April" isEnabled={true}></Switcher>
+              <Switcher label="Smaller population" isEnabled={true}></Switcher>
+              <Switcher label="Safer" isEnabled={true}></Switcher>
+              <Switcher label="Close to Munich" isEnabled={false}></Switcher>
+              <Link to="/results">
+                <Button text="Find Vacation Spot" className="mt-10"></Button>
+              </Link>
+            </div>
+          </div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
