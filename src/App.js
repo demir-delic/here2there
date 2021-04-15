@@ -2,10 +2,19 @@ import "./App.css";
 import Switcher from "./Switcher";
 import Button from "./Button";
 import Header from "./Header";
+import LinkComponent from "./Link";
+import Modal from "./Modal";
 import Card from "./Cards";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [openModal, setOpenModal] = useState(false);
+
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <BrowserRouter>
       <Switch>
@@ -21,6 +30,11 @@ function App() {
         </Route>
         <Route path="/">
           <div className="fill-viewport bg-gray-50">
+            <Modal open={openModal} onModalUpdate={setOpenModal} />
+            {/* {`\nopenModal: ${openModal}`} */}
+            <div className="cursor-pointer" onClick={toggleModal}>
+              <LinkComponent></LinkComponent>
+            </div>
             <Header userCity="Munich" userCountry="Germany"></Header>
             <div className="form-control container mx-auto px-10">
               <Switcher label="Less expensive" isEnabled={true}></Switcher>
