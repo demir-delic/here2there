@@ -22,7 +22,12 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "ci-test": "craco test --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint --fix './src/**/*.{js,jsx}'",
+    "format": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx,json,css,md}'",
+    "format-check": "./node_modules/.bin/prettier --check 'src/**/*.{js,jsx,json,css,md}'",
+    "quality-check": "yarn ci-test && yarn lint && yarn format-check"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +48,8 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.1.0"
+    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1"
   }
 }

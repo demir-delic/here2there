@@ -18,6 +18,8 @@ test("renders results page heading", () => {
     </BrowserRouter>
   );
 
-  const resultsPageHeading = screen.getByText(/Here are some places you might like to visit/i);
+  const resultsPageHeading = screen.getByText(
+    /Here are some places you might like to visit/i
+  );
   expect(resultsPageHeading).toBeInTheDocument();
 });

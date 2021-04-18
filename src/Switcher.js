@@ -28,7 +28,9 @@ export default function Switcher(props) {
         />
       </Switch>
       <Switch.Label as="span" className="ml-3">
-        <span className="text-base font-medium text-gray-900">{props.label}</span>
+        <span className="text-base font-medium text-gray-900">
+          {props.label}
+        </span>
       </Switch.Label>
     </Switch.Group>
   );
