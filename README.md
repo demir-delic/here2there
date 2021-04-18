@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/chingu-voyages/v29-bears-team-07">
+    <img src="https://chingu.io/logo-with-text-192.png" alt="Logo" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Travel Buddy</h3>
 
-## Available Scripts
+  <p align="center">
+    Get travel recommendations based on your preferences.
+    <br />
+    <a href="https://github.com/chingu-voyages/v29-bears-team-07"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://travel-buddy-8ew3l.ondigitalocean.app/">View Demo</a>
+    ·
+    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-v29-bears-team-07rt-template.md&title=">Report Bug</a>
+    ·
+    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
+  </p>
+</p>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
 
-### `yarn start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [Roadmap](#roadmap)
+  <!-- - [Contributing](#contributing) -->
+  <!-- - [License](#license) -->
+  <!-- - [Contributors](#contributors-) -->
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
 
-### `yarn test`
+## About The Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- [![Product Name Screen Shot][./example.png]](https://travel-buddy-8ew3l.ondigitalocean.app/) -->
 
-### `yarn build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Create React App](https://create-react-app.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- GETTING STARTED -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `yarn eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Node.js](https://nodejs.org) (v14 or above)
+- [Yarn 1](https://classic.yarnpkg.com/en/docs/install)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the repository
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+git clone https://github.com/chingu-voyages/v29-bears-team-07.git
+```
 
-## Learn More
+2. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+yarn install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- USAGE EXAMPLES -->
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We support the standard create-react-app scripts. For more information, see our [package.json](./package.json) or visit https://create-react-app.dev/docs/available-scripts.
 
-### Analyzing the Bundle Size
+<!-- ROADMAP -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Roadmap
 
-### Making a Progressive Web App
+See the [project roadmap](https://github.com/chingu-voyages/v29-bears-team-07/projects/1) for a list of upcoming features and fixes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- CONTRIBUTING -->
 
-### Advanced Configuration
+<!-- ## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### Deployment
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You are requested to follow the contribution guidelines specified in [CONTRIBUTING.md](./CONTRIBUTING.md) while contributing to the project :smile:. -->
 
-### `yarn build` fails to minify
+<!-- LICENSE -->
+<!--
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information. -->
