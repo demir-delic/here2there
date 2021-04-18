@@ -3,8 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import SelectMenu from "./SelectMenu";
 import Button from "./Button";
 
-export default function Modal(props) {
-  console.log(props.onModalUpdate);
+export default function ChangeCityModal(props) {
+  let open = props.open;
 
   return (
     <Transition.Root show={props.open} as={Fragment}>
@@ -12,7 +12,7 @@ export default function Modal(props) {
         as="div"
         static
         className="fixed z-10 inset-0 overflow-y-auto"
-        open={props.open}
+        open={open}
         onClose={props.onModalUpdate}
       >
         <div className="flex items-center justify-center min-h-screen text-center sm:block">
@@ -50,18 +50,20 @@ export default function Modal(props) {
                   >
                     Where are you located?
                   </Dialog.Title>
-                  <SelectMenu className="text-left"></SelectMenu>
+                  <SelectMenu className="text-left" />
                 </div>
               </div>
               <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
                 <Button
                   text="Confirm"
                   className="w-full rounded-md border border-transparent shadow-sm bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
-                  // onClick={props.onModalUpdate}
+                  // onClick={() => {
+                  //   open = false;
+                  // }}
                   onClick={() => {
                     alert("click outside of modal to close it");
                   }}
-                ></Button>
+                />
                 <Button
                   text="Cancel"
                   className="mt-3 w-full sm:mt-0 sm:col-start-1 sm:text-sm"
@@ -69,7 +71,7 @@ export default function Modal(props) {
                   onClick={() => {
                     alert("click outside of modal to close it");
                   }}
-                ></Button>
+                />
               </div>
             </div>
           </Transition.Child>

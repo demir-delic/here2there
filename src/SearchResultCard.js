@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function SearchResultCard(props) {
   return (
-    <div key={props.result.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
         <img className="h-48 w-full object-cover" src={props.result.imageUrl} alt="" />
       </div>
@@ -16,7 +16,7 @@ export default function SearchResultCard(props) {
         </div>
         <div className="mt-6 flex items-center">
           <a href={props.result.href} rel="noreferrer noopener">
-            <Button text={`Learn more about ${props.result.city}`}></Button>
+            <Button text={`Learn more about ${props.result.city}`} />
           </a>
         </div>
       </div>
