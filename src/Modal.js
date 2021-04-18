@@ -15,7 +15,7 @@ export default function Modal(props) {
         open={props.open}
         onClose={props.onModalUpdate}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen text-center sm:block">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -41,7 +41,7 @@ export default function Modal(props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl md:max-w-3xl sm:w-full xs:h-full sm:h-96 sm:p-6">
+            <div className="inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle w-full mx-4 sm:max-w-xl md:max-w-2xl lg:max-w-3xl sm:p-6">
               <div>
                 <div className="mt-3 sm:mt-5">
                   <Dialog.Title
