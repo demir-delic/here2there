@@ -1,9 +1,9 @@
+import SearchResultCard from "./SearchResultCard";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
-// TODO: split Card (individual) and the heading into separate components
-
-export default function Cards() {
-  const searchResults = [
+export default function SearchResultPage() {
+  const mockSearchResults = [
     {
       id: 1,
       country: "United States of America",
@@ -38,35 +38,20 @@ export default function Cards() {
 
   return (
     <div className="relative bg-gray-50 py-16">
-      <div className="relative">
-        <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-          <p className="mt-2 text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl">
-            Here are some places you might like to visit
-          </p>
-        </div>
-        <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
-          {searchResults.map((post) => (
-            <div key={post.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-                <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <p className="text-xl font-semibold text-gray-900">{post.city}</p>
-                  <div className="block mt-2">
-                    <p className="text-sm font-medium text-cyan-600">{post.country}</p>
-                    <p className="mt-3 text-base text-gray-500">{post.preview}</p>
-                  </div>
-                </div>
-                <div className="mt-6 flex items-center">
-                  <a href={post.href}>
-                    <Button text={`Learn more about ${post.city}`}></Button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+        <p className="mt-2 text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl">
+          Here are some places you might like to visit
+        </p>
+      </div>
+      <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
+        {mockSearchResults.map((result) => (
+          <SearchResultCard result={result}></SearchResultCard>
+        ))}
+      </div>
+      <div className="w-max mx-auto mt-16">
+        <Link to="/">
+          <Button text="Search Again"></Button>
+        </Link>
       </div>
     </div>
   );

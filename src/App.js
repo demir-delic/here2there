@@ -2,9 +2,9 @@ import "./App.css";
 import Switcher from "./Switcher";
 import Button from "./Button";
 import Header from "./Header";
-import LinkComponent from "./Link";
 import Modal from "./Modal";
-import Cards from "./Cards";
+import ModalCornerLink from "./ModalCornerLink";
+import SearchResultPage from "./SearchResultPage";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,22 +19,13 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/results">
-          <div className="h-min-screen bg-gray-50">
-            <Cards></Cards>
-            <div className="container w-max mx-auto mb-16">
-              <Link to="/">
-                <Button text="Search Again"></Button>
-              </Link>
-            </div>
-          </div>
+          <SearchResultPage></SearchResultPage>
         </Route>
         <Route path="/">
           <div className="h-min-screen bg-gray-50">
             <Modal open={openModal} onModalUpdate={setOpenModal} />
             {/* {`\nopenModal: ${openModal}`} */}
-            <div className="cursor-pointer" onClick={toggleModal}>
-              <LinkComponent></LinkComponent>
-            </div>
+            <ModalCornerLink onClick={toggleModal}></ModalCornerLink>
             <Header userCity="Munich" userCountry="Germany"></Header>
             <div className="container flex flex-col items-baseline justify-between w-max h-88 mx-auto px-10">
               <Switcher label="Less expensive" isEnabled={true}></Switcher>
@@ -42,11 +33,11 @@ function App() {
               <Switcher label="Smaller population" isEnabled={true}></Switcher>
               <Switcher label="Safer" isEnabled={true}></Switcher>
               <Switcher label="Close to Munich" isEnabled={false}></Switcher>
-              <Link to="/results">
-                <div className="mt-6 mb-16">
+              <div className="mt-6 mb-16">
+                <Link to="/results">
                   <Button text="Find Vacation Spot"></Button>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
         </Route>
