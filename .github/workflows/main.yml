@@ -15,6 +15,10 @@ on:
 jobs:
   build:
     name: Build
+    defaults:
+      run:
+        working-directory: ./client
+        
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,6 +32,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Install Yarn
+        run: npm install -g yarn
+        
       # Runs a set of commands using the runners shell
       - name: Install dependencies and build project
         run: |
@@ -37,6 +44,9 @@ jobs:
   quality-check:
     name: Quality Check
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v1
@@ -45,6 +55,9 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
+        
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
