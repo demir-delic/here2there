@@ -33,6 +33,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
+      - name: List current directory
+        run: ls
+        
+      - name: Determine current branch
+        run: git branch --show-current
+        
       - name: Install dependencies
         run: npm install
         
