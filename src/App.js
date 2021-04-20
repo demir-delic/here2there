@@ -1,10 +1,10 @@
 import "./App.css";
-import Switcher from "./Switcher";
-import Button from "./Button";
-import LandingPageHeader from "./LandingPageHeader";
-import ChangeCityModal from "./ChangeCityModal";
-import ModalCornerLink from "./ModalCornerLink";
-import SearchResultPage from "./SearchResultPage";
+import Switcher from "./components/Switcher";
+import Button from "./components/Button";
+import LandingPageHeader from "./components/LandingPageHeader";
+import ChangeCityModal from "./components/ChangeCityModal";
+import ModalCornerLink from "./components/ModalCornerLink";
+import SearchResultPage from "./components/SearchResultPage";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 
