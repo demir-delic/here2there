@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    name: Build
+    name: Build and Run Quality Checks
     defaults:
       run:
         working-directory: ./client
@@ -24,7 +24,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Sets up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
@@ -34,29 +33,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      # Runs a set of commands using the runners shell
-      - name: Install dependencies and build project
-        run: |
-          npm install,
-          npm run build
-
-  quality-check:
-    name: Quality Check
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./client
-    steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Install dependencies
         run: npm install
-      
+        
+      - name: Build project
+        run: npm run build
+        
       - name: Run tests, linter, and formatter
         run: npm run quality-check
