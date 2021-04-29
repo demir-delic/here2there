@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    name: Frontend - Build and Run Quality Checks
+    name: FE - Build and Quality Check
     defaults:
       run:
         working-directory: ./client
@@ -32,9 +32,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: Show current branch
-        run: git branch --show-current
         
       - name: Install dependencies
         run: npm ci
