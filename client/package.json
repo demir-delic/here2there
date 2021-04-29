@@ -27,7 +27,7 @@
     "lint": "./node_modules/.bin/eslint --fix './src/**/*.{js,jsx}'",
     "format": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx,json,css,md}'",
     "format-check": "./node_modules/.bin/prettier --check 'src/**/*.{js,jsx,json,css,md}'",
-    "quality-check": "yarn ci-test && yarn lint && yarn format-check"
+    "quality-check": "npm run ci-test && npm run lint && npm run format-check"
   },
   "eslintConfig": {
     "extends": [

@@ -53,8 +53,7 @@
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) (v14 or above)
-- [Yarn 1](https://classic.yarnpkg.com/en/docs/install)
+- [Node.js](https://nodejs.org) (v14 or above) and npm
 
 ### Installation
 
@@ -67,7 +66,7 @@ git clone https://github.com/chingu-voyages/v29-bears-team-07.git
 2. Install dependencies
 
 ```sh
-yarn install
+npm install
 ```
 
 <!-- USAGE EXAMPLES -->
@@ -75,6 +74,15 @@ yarn install
 ## Usage
 
 We support the standard create-react-app scripts. For more information, see our [package.json](./package.json) or visit https://create-react-app.dev/docs/available-scripts.
+
+We also support scripts for testing, linting, and formatting code.
+```sh
+npm run test
+npm run lint
+npm run format
+# runs versions of the above three commands meant for pre-commit scripts and CI pipelines
+npm run quality-check
+```
 
 <!-- ROADMAP -->
 
