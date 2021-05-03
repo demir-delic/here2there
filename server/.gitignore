@@ -16,5 +16,5 @@ media
 #   install all needed dependencies.
 #Pipfile.lock
 
-# Environments 
-.env 
+# Environments
+.env
