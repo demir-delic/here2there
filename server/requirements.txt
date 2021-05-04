@@ -9,6 +9,7 @@ filelock==3.0.12
 identify==2.2.4
 nodeenv==1.6.0
 pre-commit==2.12.1
+psycopg2==2.8.6
 pytz==2021.1
 PyYAML==5.4.1
 six==1.15.0
