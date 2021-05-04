@@ -4,7 +4,7 @@ from django.db import models
 class Destination(models.Model):
     """
     Destination Model
-    Defines attributes of a city
+    Defines attributes of a city in database
     """
 
     city_id = models.CharField(primary_key=True, max_length=255)
