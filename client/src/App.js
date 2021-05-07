@@ -34,20 +34,20 @@ function App() {
                     lon: data.longitude,
                 })
                 setUserCountry(data.country_name)
+                if (data.city) {
+                    setUserCity(data.city)
+                }
             })
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                setCoords({
+                    lat: pos.coords.latitude,
+                    lon: pos.coords.longitude,
+                })
+            })
+        }
         // Reverse Geocode function below
-        await axios
-            .get(
-                `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${coords.lon}%2C${coords.lat}`
-            )
-            .then((res) => res.data)
-            .then((data) => setUserCity(data.address.city))
-        navigator.geolocation.getCurrentPosition((pos) => {
-            setCoords({
-                lat: pos.coords.latitude,
-                lon: pos.coords.longitude,
-            })
-        })
     }
 
     useEffect(() => {
