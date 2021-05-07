@@ -12,6 +12,8 @@ import axios from 'axios'
 function App() {
     const [openModal, setOpenModal] = useState(false)
     const [coords, setCoords] = useState({ lat: 0, lon: 0 })
+    const [userCity, setUserCity] = useState('Sector 336')
+    const [userCountry, setUserCountry] = useState('Planet Earth')
 
     const toggleModal = () => {
         setOpenModal(!openModal)
@@ -23,26 +25,29 @@ function App() {
             .get('https://api.ipify.org')
             .then((res) => res.data)
 
-        const geoFromIp = await axios
+        await axios
             .get(`http://api.ipstack.com/${ip}?access_key=${key}`)
             .then((res) => res.data)
-            .then((data) =>
+            .then((data) => {
                 setCoords({
                     lat: data.latitude,
                     lon: data.longitude,
                 })
-            )
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                setCoords({
-                    lat: pos.coords.latitude,
-                    lon: pos.coords.longitude,
-                })
+                setUserCountry(data.country_name)
             })
-        } else {
-            axios.get()
-        }
+        // Reverse Geocode function below
+        await axios
+            .get(
+                `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${coords.lon}%2C${coords.lat}`
+            )
+            .then((res) => res.data)
+            .then((data) => setUserCity(data.address.city))
+        navigator.geolocation.getCurrentPosition((pos) => {
+            setCoords({
+                lat: pos.coords.latitude,
+                lon: pos.coords.longitude,
+            })
+        })
     }
 
     useEffect(() => {
@@ -64,8 +69,8 @@ function App() {
                         {/* {`\nopenModal: ${openModal}`} */}
                         <ModalCornerLink onClick={toggleModal} />
                         <LandingPageHeader
-                            userCity='Munich'
-                            userCountry='Germany'
+                            userCity={userCity}
+                            userCountry={userCountry}
                         />
                         <div className='container flex flex-col items-baseline justify-between w-max h-88 mx-auto px-10'>
                             <Switcher label='Less expensive' isEnabled={true} />
