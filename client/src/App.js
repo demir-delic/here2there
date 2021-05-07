@@ -34,7 +34,7 @@ function App() {
                     lon: data.longitude,
                 })
                 setUserCountry(data.country_name)
-                if (data.city) {
+                if (data.city !== null) {
                     setUserCity(data.city)
                 }
             })
@@ -48,11 +48,17 @@ function App() {
             })
         }
         // Reverse Geocode function below
+        await axios
+            .get(
+                `http://api.positionstack.com/v1/forward?access_key=${key}&query=${coords.lat},${coords.lon}`
+            )
+            .then((res) => res.data)
+            .then((data) => data)
     }
 
     useEffect(() => {
         getLocation()
-    }, [])
+    })
 
     return (
         <BrowserRouter>
