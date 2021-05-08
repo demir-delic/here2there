@@ -3,6 +3,7 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
+router.register(r"cities", views.CityViewSet)
 router.register(r"nearest-city", views.NearestCityViewSet)
 
 urlpatterns = [
