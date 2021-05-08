@@ -6,6 +6,8 @@ Django==3.2
 django-environ==0.4.5
 djangorestframework==3.12.4
 filelock==3.0.12
+geographiclib==1.50
+geopy==2.1.0
 identify==2.2.4
 nodeenv==1.6.0
 pre-commit==2.12.1
