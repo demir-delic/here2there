@@ -6,6 +6,8 @@ from rest_framework.exceptions import ValidationError
 from .models import Destination
 from .serializer import NearestCitySerializer
 
+from .utils import get_closest_city
+
 
 class NearestCityViewSet(viewsets.ModelViewSet):
     queryset = Destination.objects.all()
@@ -13,12 +15,13 @@ class NearestCityViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
 
-        longitude = self.request.query_params.get("long")
         latitude = self.request.query_params.get("lat")
+        longitude = self.request.query_params.get("long")
 
-        if longitude is not None and latitude is not None:
-            queryset = self.queryset.filter(longitude=longitude, latitude=latitude)
-            return queryset
+        if latitude is not None and longitude is not None:
+
+            return get_closest_city(self.queryset, latitude, longitude)
+
         else:
             raise ValidationError(
                 {
