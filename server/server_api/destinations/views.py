@@ -15,7 +15,7 @@ class CityViewSet(viewsets.ModelViewSet):
 
 class NearestCityViewSet(viewsets.ModelViewSet):
     queryset = Destination.objects.all()
-    serializer_class = NearestCitySerializer
+    serializer_class = CitySerializer
 
     def get_queryset(self):
         latitude = self.request.query_params.get("lat")

@@ -5,10 +5,4 @@ from .models import Destination
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Destination
-        fields = ("city",)
-
-
-class NearestCitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Destination
-        fields = ("city", "country")
+        fields = ("city_id", "city", "country")
