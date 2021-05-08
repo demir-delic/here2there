@@ -16,7 +16,5 @@ def get_closest_city(queryset, latitude, longitude):
             nearest_city = city.city_id
 
     filtered_queryset = queryset.filter(city_id=nearest_city)
-    print("nearest_city", nearest_city)
-    print("distance_to_nearest_city", distance_to_nearest_city)
 
     return filtered_queryset
