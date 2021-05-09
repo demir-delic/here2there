@@ -10,6 +10,7 @@ django-environ = "*"
 pre-commit = "*"
 psycopg2 = "*"
 geopy = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

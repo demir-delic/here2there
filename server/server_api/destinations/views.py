@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 
 from .models import Destination
-from .serializer import CitySerializer, NearestCitySerializer
+from .serializer import CitySerializer
 from .utils import get_closest_city
 
 
