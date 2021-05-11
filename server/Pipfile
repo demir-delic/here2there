@@ -8,9 +8,9 @@ django = "*"
 djangorestframework = "*"
 django-environ = "*"
 pre-commit = "*"
-psycopg2 = "*"
 geopy = "*"
 django-cors-headers = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
