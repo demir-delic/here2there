@@ -61,10 +61,10 @@ function App() {
         }
       })
       .then(() => {
-        // axios
-        //   .get("/cities/")
-        //   .then((res) => console.log("/cities", res))
-        //   .catch((err) => console.error("/cities err", err));
+        axios
+          .get("/api/cities/")
+          .then((res) => console.log("/api/cities", res))
+          .catch((err) => console.error("/api/cities err", err));
 
         axios
           .get(`/api/nearest-city?lat=${coords.lat}&long=${coords.long}`)
