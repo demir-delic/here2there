@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["here2there.herokuapp.com", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["here2there.herokuapp.com", "127.0.0.1", "localhost", "ipinfo.io"]
 
 # Application definition
 
