@@ -6,6 +6,11 @@ from rest_framework.exceptions import ValidationError
 from .models import Destination
 from .serializer import CitySerializer
 from .utils import get_closest_city
+from django.views.generic import TemplateView
+from django.views.decorators.cache import never_cache
+
+# Serve Single Page Application
+index = never_cache(TemplateView.as_view(template_name="index.html"))
 
 
 class CityViewSet(viewsets.ModelViewSet):
