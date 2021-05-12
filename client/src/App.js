@@ -67,15 +67,15 @@ function App() {
         //   .catch((err) => console.error("/cities err", err));
 
         axios
-          .get(`/nearest-city?lat=${coords.lat}&long=${coords.long}`)
+          .get(`/api/nearest-city?lat=${coords.lat}&long=${coords.long}`)
           .then((res) => {
-            console.log("/nearest-city", res);
+            console.log("/api/nearest-city", res);
             setCityId(res.data[0].city_id);
             setCity(res.data[0].city);
             setCountry(res.data[0].country);
             console.log(cityId, city, country, coords);
           })
-          .catch((err) => console.error("/nearest-city err", err));
+          .catch((err) => console.error("/api/nearest-city err", err));
       });
   };
 
