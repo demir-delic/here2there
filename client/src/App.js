@@ -9,7 +9,6 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 let useEffectLoopCounter = 0;
-console.log("top of file", useEffectLoopCounter);
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -29,43 +28,56 @@ function App() {
     setOpenModal(!openModal);
   };
 
-  const getLocation = async () => {
+  const setCoordsWithApi = async () => {
+    if (useEffectLoopCounter <= 2) {
+      // set coordinates using third-party API
+      // this is less accurate than navigator.geolocation
+      const ipInfoKey = process.env.REACT_APP_IPINFO_ACCESS_TOKEN;
+      const request = await fetch(`https://ipinfo.io/json?token=${ipInfoKey}`);
+      const jsonResponse = await request.json();
+      const latitude = jsonResponse.loc.split(",")[0];
+      const longitude = jsonResponse.loc.split(",")[1];
+      // console.log("latitude", latitude, "longitude", longitude);
+      setCoords({ lat: latitude, long: longitude });
+    }
+  };
+
+  const setCoordsWithGeolocation = () => {
+    // set coordinates using browser API
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setCoords({
+        lat: pos.coords.latitude,
+        long: pos.coords.longitude,
+      });
+    });
+    console.log("setCoordsWithGeolocation coords", coords);
+  };
+
+  const getLocation = () => {
     navigator.permissions
       .query({ name: "geolocation" })
       .then(async (result) => {
-        // result.state can be one of ['granted', 'prompt', 'denied'])
-        console.log("geolocation.permissions.query", result.state);
-        if (result.state === "granted") {
-          // set coordinates using browser API
-          navigator.geolocation.getCurrentPosition((pos) => {
-            setCoords({
-              lat: pos.coords.latitude,
-              lon: pos.coords.longitude,
-            });
-            // console.log("coords when geolocation granted", coords);
-          });
-        } else if (result.state === "denied" || result.state === "prompt") {
-          // set coordinates using third-party API
-          // this is less accurate than navigator.geolocation
-          const ipInfoKey = process.env.REACT_APP_IPINFO_ACCESS_TOKEN;
-          const request = await fetch(`https://ipinfo.io/json?token=${ipInfoKey}`);
-          const jsonResponse = await request.json();
-          const latitude = jsonResponse.loc.split(",")[0];
-          const longitude = jsonResponse.loc.split(",")[1];
-          console.log("latitude", latitude, "longitude", longitude);
-          setCoords({ lat: latitude, long: longitude });
-          console.log("coords", coords);
-        } else {
-          // todo: handle asking for location prompt correctly
-          console.error("Unexpected state received when querying geolocation permissions", result);
+        // result.state can be 'granted', 'prompt', or 'denied'
+        switch (result.state) {
+          case "granted":
+            setCoordsWithGeolocation();
+            break;
+          case "prompt":
+            setCoordsWithGeolocation();
+            setCoordsWithApi();
+            break;
+          case "denied":
+            setCoordsWithApi();
+            break;
+          default:
+            console.error(
+              "Unexpected state received when querying geolocation permissions",
+              result
+            );
         }
+        console.log("geolocation.permissions.query", result.state, coords);
       })
       .then(() => {
-        axios
-          .get("/api/cities/")
-          .then((res) => console.log("/api/cities", res))
-          .catch((err) => console.error("/api/cities err", err));
-
         axios
           .get(`/api/nearest-city?lat=${coords.lat}&long=${coords.long}`)
           .then((res) => {
@@ -82,8 +94,8 @@ function App() {
   useEffect(() => {
     // this counter is a hack to make sure that `coords` is updated
     ++useEffectLoopCounter;
-    console.log("in useeffect", useEffectLoopCounter);
-    if (useEffectLoopCounter <= 2) {
+    console.log("useEffectLoopCounter in useeffect", useEffectLoopCounter);
+    if (useEffectLoopCounter <= 3) {
       setMonthFromCurrentDate();
       getLocation();
     }
