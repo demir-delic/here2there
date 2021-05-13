@@ -10,11 +10,9 @@
   <p align="center">
     Get travel recommendations based on your preferences.
     <br />
-    <a href="https://github.com/chingu-voyages/v29-bears-team-07"><strong>Explore the docs »</strong></a>
+    <a href="https://here2there.herokuapp.com/"><strong>Open app »</strong></a>
     <br />
     <br />
-    <a href="https://travel-buddy-8ew3l.ondigitalocean.app/">View Demo</a>
-    ·
     <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-v29-bears-team-07rt-template.md&title=">Report Bug</a>
     ·
     <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
