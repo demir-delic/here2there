@@ -5,6 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r"cities", views.CityViewSet)
 router.register(r"nearest-city", views.NearestCityViewSet)
+router.register(r"recommended-cities", views.RecommendedCitiesViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
