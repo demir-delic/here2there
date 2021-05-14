@@ -2,19 +2,17 @@
 <br />
 <p align="center">
   <a href="https://github.com/chingu-voyages/v29-bears-team-07">
-    <img src="https://chingu.io/logo-with-text-192.png" alt="Logo" height="80">
+    <img src="./logo.png" alt="Logo" height="200">
   </a>
 
-  <h3 align="center">Travel Buddy</h3>
+  <h3 align="center">Here2There</h3>
 
   <p align="center">
     Get travel recommendations based on your preferences.
     <br />
-    <a href="https://github.com/chingu-voyages/v29-bears-team-07"><strong>Explore the docs »</strong></a>
+    <a href="https://here2there.herokuapp.com/"><strong>Open app »</strong></a>
     <br />
     <br />
-    <a href="https://travel-buddy-8ew3l.ondigitalocean.app/">View Demo</a>
-    ·
     <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-v29-bears-team-07rt-template.md&title=">Report Bug</a>
     ·
     <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
@@ -76,6 +74,7 @@ npm install
 We support the standard create-react-app scripts. For more information, see our [package.json](./package.json) or visit https://create-react-app.dev/docs/available-scripts.
 
 We also support scripts for testing, linting, and formatting code.
+
 ```sh
 npm run test
 npm run lint

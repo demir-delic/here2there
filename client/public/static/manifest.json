@@ -1,6 +1,6 @@
 {
-  "short_name": "Travel Buddy",
-  "name": "Travel Buddy",
+  "short_name": "Here2There",
+  "name": "Here2There",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "../",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#28D390",
+  "background_color": "#F9FAFB"
 }
