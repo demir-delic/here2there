@@ -8,6 +8,7 @@ router.register(r"nearest-city", views.NearestCityViewSet)
 router.register(r"recommended-cities", views.RecommendedCitiesViewSet)
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("", views.index, name="index"),
+    path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
