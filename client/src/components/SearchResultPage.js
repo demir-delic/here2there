@@ -28,7 +28,7 @@ export default function SearchResultPage(props) {
   };
 
   return (
-    <div className="relative bg-gray-50 py-16">
+    <div className="relative bg-gray-50 py-4 md:py-16">
       {props.cityId === "" ? (
         <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl mb-16">
           <Alert
@@ -56,7 +56,7 @@ export default function SearchResultPage(props) {
           </div>
         </>
       )}
-      <div className="w-max mx-auto mt-16">
+      <div className="w-max mx-auto my-16">
         <Link to="/">
           <Button text="Search Again" />
         </Link>

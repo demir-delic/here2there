@@ -15,7 +15,7 @@ export default function SearchResultCard(props) {
           </div>
         </div>
         <div className="mt-6 flex items-center">
-          <a href={props.result.teleport_url} rel="noreferrer noopener">
+          <a href={props.result.teleport_url} target="_blank" rel="noreferrer noopener">
             <Button text={`Learn more about ${props.result.city}`} />
           </a>
         </div>

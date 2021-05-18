@@ -24,6 +24,7 @@ function App() {
   const [smallPopEnabled, setSmallPopEnabled] = useState(false);
   const [safeEnabled, setSafeEnabled] = useState(false);
   const [closeEnabled, setCloseEnabled] = useState(false);
+  let isMonthSet = false;
 
   const onCitySelection = (selectedCity) => {
     setCityId(selectedCity.city_id);
@@ -36,6 +37,7 @@ function App() {
     const currentMonth = currentDate.toLocaleString("en", { month: "long" });
     setMonth(currentMonth);
     setMonthNumber(currentDate.getMonth() + 1);
+    isMonthSet = true;
   };
 
   const toggleModal = () => {
@@ -67,6 +69,21 @@ function App() {
     console.log("setCoordsWithGeolocation coords", coords);
   };
 
+  const setNearestCityData = () => {
+    if (coords.lat !== null && coords.long !== null) {
+      axios
+        .get(`/api/nearest-city?lat=${coords.lat}&long=${coords.long}`)
+        .then((res) => {
+          console.log("/api/nearest-city", res);
+          setCityId(res.data[0].city_id);
+          setCity(res.data[0].city);
+          setCountry(res.data[0].country);
+          console.log(cityId, city, country, coords);
+        })
+        .catch((err) => console.error("/api/nearest-city err", err));
+    }
+  };
+
   // const getHardCodedLocation = () => {
   //   setCoords({
   //     lat: "43.6135",
@@ -78,49 +95,46 @@ function App() {
   // };
 
   const getLocation = () => {
-    navigator.permissions
-      .query({ name: "geolocation" })
-      .then(async (result) => {
-        // result.state can be 'granted', 'prompt', or 'denied'
-        switch (result.state) {
-          case "granted":
-            setCoordsWithGeolocation();
-            break;
-          case "prompt":
-            setCoordsWithGeolocation();
-            setCoordsWithApi();
-            break;
-          case "denied":
-            setCoordsWithApi();
-            break;
-          default:
-            console.error(
-              "Unexpected state received when querying geolocation permissions",
-              result
-            );
-        }
-        console.log("geolocation.permissions.query", result.state, coords);
-      })
-      .then(() => {
-        axios
-          .get(`/api/nearest-city?lat=${coords.lat}&long=${coords.long}`)
-          .then((res) => {
-            console.log("/api/nearest-city", res);
-            setCityId(res.data[0].city_id);
-            setCity(res.data[0].city);
-            setCountry(res.data[0].country);
-            console.log(cityId, city, country, coords);
-          })
-          .catch((err) => console.error("/api/nearest-city err", err));
-      });
+    if (navigator.permissions) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(async (result) => {
+          // result.state can be 'granted', 'prompt', or 'denied'
+          switch (result.state) {
+            case "granted":
+              setCoordsWithGeolocation();
+              break;
+            case "prompt":
+              setCoordsWithGeolocation();
+              setCoordsWithApi();
+              break;
+            case "denied":
+              setCoordsWithApi();
+              break;
+            default:
+              console.error(
+                "Unexpected state received when querying geolocation permissions",
+                result
+              );
+          }
+          console.log("geolocation.permissions.query", result.state, coords);
+        })
+        .then(() => {
+          setNearestCityData();
+        });
+    } else {
+      setCoordsWithApi().then(setNearestCityData());
+    }
   };
 
   useEffect(() => {
     // this counter is a hack to make sure that `coords` is updated
     ++useEffectLoopCounter;
     console.log("useEffectLoopCounter in useeffect", useEffectLoopCounter);
-    if (useEffectLoopCounter <= 3) {
+    if (!isMonthSet) {
       setMonthFromCurrentDate();
+    }
+    if (useEffectLoopCounter <= 3) {
       getLocation();
       // getHardCodedLocation();
     }
