@@ -1,4 +1,3 @@
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/chingu-voyages/v29-bears-team-07">
@@ -13,98 +12,26 @@
     <a href="https://here2there.herokuapp.com/"><strong>Open app »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-v29-bears-team-07rt-template.md&title=">Report Bug</a>
+    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-report-template.md&title=">Report Bug</a>
     ·
     <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
+## About
 
-## Table of Contents
+The Here2There app recommends travel destinations based on a user's preferences of factors like cost, climate, and safety. It's built with React, Django, and PostgreSQL, and hosted on Heroku.
 
-- [About the Project](#about-the-project)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Usage](#usage)
-- [Roadmap](#roadmap)
-  <!-- - [Contributing](#contributing) -->
-  <!-- - [License](#license) -->
-  <!-- - [Contributors](#contributors-) -->
-
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-<!-- [![Product Name Screen Shot][./example.png]](https://travel-buddy-8ew3l.ondigitalocean.app/) -->
-
-### Built With
-
-- [Create React App](https://create-react-app.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org) (v14 or above) and npm
-
-### Installation
-
-1. Clone the repository
-
-```sh
-git clone https://github.com/chingu-voyages/v29-bears-team-07.git
-```
-
-2. Install dependencies
-
-```sh
-npm install
-```
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-We support the standard create-react-app scripts. For more information, see our [package.json](./package.json) or visit https://create-react-app.dev/docs/available-scripts.
-
-We also support scripts for testing, linting, and formatting code.
-
-```sh
-npm run test
-npm run lint
-npm run format
-# runs versions of the above three commands meant for pre-commit scripts and CI pipelines
-npm run quality-check
-```
-
-<!-- ROADMAP -->
+For details on how the app is built and how to set up a development environment, see the setup guides for the [frontend](./client/README.md) and [backend](./server/README.md).
 
 ## Roadmap
 
 See the [project roadmap](https://github.com/chingu-voyages/v29-bears-team-07/projects/1) for a list of upcoming features and fixes.
 
-<!-- CONTRIBUTING -->
+## Contributing
 
-<!-- ## Contributing
+Contributions of any kind are welcomed and greatly appreciated. We request that you follow the [contribution guidelines](./CONTRIBUTING.md).
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-You are requested to follow the contribution guidelines specified in [CONTRIBUTING.md](./CONTRIBUTING.md) while contributing to the project :smile:. -->
-
-<!-- LICENSE -->
-<!--
 ## License
 
-Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information. -->
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
