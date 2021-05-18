@@ -6,13 +6,16 @@ function classNames(...classes) {
 }
 
 export default function Switcher(props) {
-  const [enabled, setEnabled] = useState(props.isEnabled);
+  const [enabled, setEnabled] = useState(props.isEnabled || false);
 
   return (
     <Switch.Group as="div" className="flex items-center">
       <Switch
         checked={enabled}
-        onChange={setEnabled}
+        onChange={() => {
+          setEnabled(!enabled);
+          props.onStateChange(!enabled);
+        }}
         className={classNames(
           enabled ? "bg-green-600" : "bg-gray-200",
           "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -28,9 +31,7 @@ export default function Switcher(props) {
         />
       </Switch>
       <Switch.Label as="span" className="ml-3">
-        <span className="text-base font-medium text-gray-900">
-          {props.label}
-        </span>
+        <span className="text-base font-medium text-gray-900">{props.label}</span>
       </Switch.Label>
     </Switch.Group>
   );
