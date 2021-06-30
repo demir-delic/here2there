@@ -41,6 +41,14 @@ def get_recommended_cities(
     less_populated,
     is_close_to_city,
 ):
+    print("city_id", city_id)
+    print("is_warmer", is_warmer)
+    print("month", month)
+    print("is_cheaper", is_cheaper)
+    print("is_safer", is_safer)
+    print("less_populated", less_populated)
+    print("is_close_to_city", is_close_to_city)
+
     current_city_queryset = queryset.filter(city_id=city_id)
 
     filter_by_weather = []
@@ -166,4 +174,5 @@ def get_recommended_cities(
 
     filtered_queryset = queryset.filter(city_id__in=random_recommended_queryset)
 
+    print("filtered_queryset", filtered_queryset)
     return filtered_queryset

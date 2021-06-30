@@ -29,10 +29,7 @@ export default function ChangeCityModal(props) {
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
-          <span
-            className="hidden sm:inline-block sm:align-middle sm:h-screen"
-            aria-hidden="true"
-          >
+          <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
             &#8203;
           </span>
           <Transition.Child
@@ -44,7 +41,7 @@ export default function ChangeCityModal(props) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle w-full mx-4 sm:max-w-xl md:max-w-2xl lg:max-w-3xl sm:p-6">
+            <div className="inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle w-full mx-4 sm:max-w-xl sm:p-6">
               <div>
                 <div className="mt-3 sm:mt-5">
                   <Dialog.Title
@@ -53,28 +50,30 @@ export default function ChangeCityModal(props) {
                   >
                     Where are you located?
                   </Dialog.Title>
-                  <SelectMenu className="text-left" />
+                  <SelectMenu
+                    className="text-left"
+                    city={props.city}
+                    citySelection={props.citySelection}
+                    onCitySelection={props.onCitySelection}
+                  />
                 </div>
               </div>
-              <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+              {/* <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense"> */}
+              <div className="mt-5 sm:mt-6 flex justify-center">
                 <Button
                   text="Confirm"
-                  className="w-full rounded-md border border-transparent shadow-sm bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
-                  // onClick={() => {
-                  //   open = false;
-                  // }}
+                  className="w-1/2 rounded-md border border-transparent shadow-sm bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
                   onClick={() => {
-                    alert("click outside of modal to close it");
+                    props.onModalUpdate(false);
                   }}
                 />
-                <Button
+                {/* <Button
                   text="Cancel"
                   className="mt-3 w-full sm:mt-0 sm:col-start-1 sm:text-sm"
-                  // onClick={props.onModalUpdate}
                   onClick={() => {
-                    alert("click outside of modal to close it");
+                    props.onModalUpdate(false);
                   }}
-                />
+                /> */}
               </div>
             </div>
           </Transition.Child>
