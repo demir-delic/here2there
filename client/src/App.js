@@ -159,10 +159,7 @@ function App() {
           <div className="h-min-screen bg-gray-50">
             {cityId === "" ? (
               <div className="max-w-3xl mx-auto pt-16 px-4 sm:px-6 lg:px-8">
-                <Alert
-                  type="info"
-                  alertText="Here2There supports many cities around the world. Please wait up to 30 seconds while we find the supported city closest to you."
-                />
+                <Alert type="info" alertText="Finding the supported city closest to you..." />
               </div>
             ) : (
               ""

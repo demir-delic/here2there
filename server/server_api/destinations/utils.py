@@ -3,24 +3,19 @@ from geopy import distance
 import random
 
 
-def get_distance_between_cities(queryset, latitude, longitude):
-    for city in queryset:
-        city_coordinates = (city.latitude, city.longitude)
-        param_coordinates = (latitude, longitude)
-        distance_between_cities = distance.distance(
-            city_coordinates, param_coordinates
-        ).kilometers
+def get_distance_between_coordinates(coords1, coords2):
+    distance_between_coordinates = distance.great_circle(coords1, coords2).kilometers
 
-    return distance_between_cities
+    return distance_between_coordinates
 
 
-def get_closest_city(queryset, latitude, longitude):
-    distance_to_nearest_city = 10000000000000
+def get_nearest_city(queryset, latitude, longitude):
+    distance_to_nearest_city = 1000000000
     nearest_city = ""
 
     for city in queryset:
-        distance_between_cities = get_distance_between_cities(
-            queryset, latitude, longitude
+        distance_between_cities = get_distance_between_coordinates(
+            (city.latitude, city.longitude), (latitude, longitude)
         )
         if distance_between_cities < distance_to_nearest_city:
             distance_to_nearest_city = distance_between_cities
@@ -41,13 +36,6 @@ def get_recommended_cities(
     less_populated,
     is_close_to_city,
 ):
-    print("city_id", city_id)
-    print("is_warmer", is_warmer)
-    print("month", month)
-    print("is_cheaper", is_cheaper)
-    print("is_safer", is_safer)
-    print("less_populated", less_populated)
-    print("is_close_to_city", is_close_to_city)
 
     current_city_queryset = queryset.filter(city_id=city_id)
 
@@ -103,8 +91,9 @@ def get_recommended_cities(
                 if city.population > current_city.population:
                     filter_by_population.append(city.city_id)
 
-            distance_between_cities = get_distance_between_cities(
-                queryset, city.latitude, city.longitude
+            distance_between_cities = get_distance_between_coordinates(
+                (city.latitude, city.longitude),
+                (current_city.latitude, current_city.longitude),
             )
 
             if is_close_to_city:
@@ -174,5 +163,4 @@ def get_recommended_cities(
 
     filtered_queryset = queryset.filter(city_id__in=random_recommended_queryset)
 
-    print("filtered_queryset", filtered_queryset)
     return filtered_queryset

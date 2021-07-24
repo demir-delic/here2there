@@ -5,7 +5,7 @@ from rest_framework.exceptions import ValidationError
 
 from .models import Destination
 from .serializer import CitySerializer, RecommendedCitySerializer
-from .utils import get_closest_city, get_recommended_cities
+from .utils import get_nearest_city, get_recommended_cities
 from geopy import distance
 import random
 from django.views.generic import TemplateView
@@ -29,7 +29,7 @@ class NearestCityViewSet(viewsets.ModelViewSet):
         longitude = self.request.query_params.get("long")
 
         if latitude is not None and longitude is not None:
-            return get_closest_city(self.queryset, latitude, longitude)
+            return get_nearest_city(self.queryset, latitude, longitude)
 
         else:
             raise ValidationError(
