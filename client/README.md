@@ -18,7 +18,7 @@ For a general overview of Here2There, see the [project README](../README.md).
 1. Navigate to client directory
 
 ```sh
-cd v29-bears-team-07/client
+cd here2there/client
 ```
 
 2. Install dependencies

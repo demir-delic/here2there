@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://github.com/chingu-voyages/v29-bears-team-07">
+  <a href="https://github.com/chingu-voyages/here2there">
     <img src="./logo.png" alt="Logo" height="200">
   </a>
 
@@ -12,9 +12,9 @@
     <a href="https://here2there.herokuapp.com/"><strong>Open app »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=bug&template=bug-report-template.md&title=">Report Bug</a>
+    <a href="https://github.com/chingu-voyages/here2there/issues/new?assignees=&labels=bug&template=bug-report-template.md&title=">Report Bug</a>
     ·
-    <a href="https://github.com/chingu-voyages/v29-bears-team-07/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
+    <a href="https://github.com/chingu-voyages/here2there/issues/new?assignees=&labels=user_story&template=user-story-template.md&title=">Request Feature</a>
   </p>
 </p>
 
@@ -26,7 +26,7 @@ For details on how the app is built and how to set up a development environment,
 
 ## Roadmap
 
-See the [project roadmap](https://github.com/chingu-voyages/v29-bears-team-07/projects/1) for a list of upcoming features and fixes.
+See the [project roadmap](https://github.com/chingu-voyages/here2there/projects/1) for a list of upcoming features and fixes.
 
 ## Contributing
 

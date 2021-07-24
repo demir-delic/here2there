@@ -139,7 +139,14 @@ function App() {
       // getHardCodedLocation();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [coords, cheapEnabled, warmEnabled, smallPopEnabled, safeEnabled, closeEnabled]);
+  }, [
+    coords,
+    cheapEnabled,
+    warmEnabled,
+    smallPopEnabled,
+    safeEnabled,
+    closeEnabled,
+  ]);
 
   return (
     <BrowserRouter>
@@ -159,7 +166,10 @@ function App() {
           <div className="h-min-screen bg-gray-50">
             {cityId === "" ? (
               <div className="max-w-3xl mx-auto pt-16 px-4 sm:px-6 lg:px-8">
-                <Alert type="info" alertText="Finding the supported city closest to you..." />
+                <Alert
+                  type="info"
+                  alertText="Finding the supported city closest to you..."
+                />
               </div>
             ) : (
               ""
@@ -188,7 +198,11 @@ function App() {
                 isEnabled={smallPopEnabled}
                 onStateChange={setSmallPopEnabled}
               />
-              <Switcher label="Safer" isEnabled={safeEnabled} onStateChange={setSafeEnabled} />
+              <Switcher
+                label="Safer"
+                isEnabled={safeEnabled}
+                onStateChange={setSafeEnabled}
+              />
               <Switcher
                 label={`Close to ${city}`}
                 isEnabled={closeEnabled}

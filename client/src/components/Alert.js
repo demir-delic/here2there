@@ -1,4 +1,8 @@
-import { InformationCircleIcon, ExclamationIcon, XCircleIcon } from "@heroicons/react/solid";
+import {
+  InformationCircleIcon,
+  ExclamationIcon,
+  XCircleIcon,
+} from "@heroicons/react/solid";
 
 export default function Alert(props) {
   const alertType = () => {
@@ -8,10 +12,15 @@ export default function Alert(props) {
           <div className="rounded-md bg-blue-50 p-4">
             <div className="flex">
               <div className="flex-shrink-0">
-                <InformationCircleIcon className="h-5 w-5 text-blue-400" aria-hidden="true" />
+                <InformationCircleIcon
+                  className="h-5 w-5 text-blue-400"
+                  aria-hidden="true"
+                />
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-blue-800">{props.alertText}</p>
+                <p className="text-sm font-medium text-blue-800">
+                  {props.alertText}
+                </p>
               </div>
             </div>
           </div>
@@ -21,10 +30,15 @@ export default function Alert(props) {
           <div className="rounded-md bg-yellow-50 p-4">
             <div className="flex">
               <div className="flex-shrink-0">
-                <ExclamationIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                <ExclamationIcon
+                  className="h-5 w-5 text-yellow-400"
+                  aria-hidden="true"
+                />
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-yellow-800">{props.alertText}</p>
+                <p className="text-sm font-medium text-yellow-800">
+                  {props.alertText}
+                </p>
               </div>
             </div>
           </div>
@@ -34,10 +48,15 @@ export default function Alert(props) {
           <div className="rounded-md bg-red-50 p-4">
             <div className="flex">
               <div className="flex-shrink-0">
-                <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                <XCircleIcon
+                  className="h-5 w-5 text-red-400"
+                  aria-hidden="true"
+                />
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-red-800">{props.alertText}</p>
+                <p className="text-sm font-medium text-red-800">
+                  {props.alertText}
+                </p>
               </div>
               {/* <div className="ml-auto pl-3">
             <div className="-mx-1.5 -my-1.5">

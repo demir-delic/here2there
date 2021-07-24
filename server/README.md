@@ -20,7 +20,7 @@ For a general overview of Here2There, see the [project README](../README.md).
 1. Navigate to server directory
 
 ```sh
-cd v29-bears-team-07/server
+cd here2there/server
 ```
 
 2. Set up virtual env and install dependencies
